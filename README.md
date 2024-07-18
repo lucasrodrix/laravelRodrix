@@ -58,6 +58,22 @@ Executar as migration
 php artisan migrate
 ```
 
+Criar Controller
+```
+php artisan make:controller NomeController
+```
+```
+php artisan make:controller CourseController
+```
+
+Criar View
+```
+php artisan make:view nome
+```
+```
+php artisan make:view courses/show
+```
+
 
 ## Como usar o GitHub
 Baixar os arquivos do Git
