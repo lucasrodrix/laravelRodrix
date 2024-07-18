@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Course;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
@@ -14,13 +15,21 @@ class CourseController extends Controller
     public function show(){
         return view('courses.show');
     }
-    //Cadastrr o Formulario Cursos
+    //Cadastrar o Formulario Cursos
     public function create(){
         return view('courses.create');
     }
     //Cadastrar no Banco de Dados o novo Curso
-    public function store(){
-        dd("Cadastrar");
+    public function store(Request $request){
+        //Cadastrar no Banco de Dados na tabela Cursos os valores de todos os campos do formulário
+        // dd($request->name);
+        Course::create([
+            'name' => $request->name
+        ]);
+
+        //Redirecionar  o usuário, enviar a mensagem de sucesso;
+        return redirect()->route('courses.create')->with('success', 'Curso cadastrado com sucesso!');
+
     }
     //Carregar o Formulário para editar o Curso
     public function edit(){
