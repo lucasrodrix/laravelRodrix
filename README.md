@@ -74,6 +74,14 @@ php artisan make:view nome
 php artisan make:view courses/show
 ```
 
+Criar Models
+```
+php artisan make:model NomeDaModel
+```
+```
+php artisan make:model Course
+```
+
 
 ## Como usar o GitHub
 Baixar os arquivos do Git
