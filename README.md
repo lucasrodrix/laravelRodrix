@@ -82,6 +82,18 @@ php artisan make:model NomeDaModel
 php artisan make:model Course
 ```
 
+Criar Seeder
+```
+php artisan make:seeder NomeSeeder
+```
+```
+php artisan make:seeder CourseSeeder
+```
+
+Executar as Seeds
+```
+php artisan db:seed
+```
 
 ## Como usar o GitHub
 Baixar os arquivos do Git
