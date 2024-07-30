@@ -56,7 +56,10 @@ class CourseController extends Controller
         return redirect()->route('courses.show',['course'=>$course->id])->with('success', 'Curso atualizado com sucesso!');
     }
     //Excluir o registro no banco de dados o curso
-    public function destroy(){
-        dd("Excluir");
+    public function destroy(Course $course){
+        //excluir o registro no banco de dados
+        $course->delete();
+        //Redireciona o usuário, envia a mensagem de sucesso;
+        return redirect()->route('courses.index')->with('success', 'Curso excluido com sucesso!');
     }
 }
