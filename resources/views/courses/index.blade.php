@@ -10,10 +10,11 @@
 
     {{-- Imprimir os Registros --}}
     @forelse ($courses as $course)
-        {{ $course->id }} <br>
-        {{ $course->name }} <br>
-        {{ \Carbon\Carbon::parse($course->created_at)->format('d/m/Y H:i:s') }} <br>
-        {{ \Carbon\Carbon::parse($course->updated_at)->format('d/m/Y H:i:s') }} <br>
+        ID: {{ $course->id }}<br>
+        Nome: {{ $course->name }}<br>
+        Preço: {{ 'R$ '.number_format($course->price, 2, ',','.') }}<br>
+        Criado em: {{ \Carbon\Carbon::parse($course->created_at)->format('d/m/Y H:i:s') }}<br>
+        Atualizado em: {{ \Carbon\Carbon::parse($course->updated_at)->format('d/m/Y H:i:s') }}<br>
         
         <a href="{{ route('courses.show', ['course'=>$course->id]) }}"><button>Visualizar</button></a><br><br>
         <a href="{{ route('courses.edit', ['course'=>$course->id]) }}"><button>Editar</button></a><br><br>

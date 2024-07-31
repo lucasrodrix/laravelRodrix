@@ -33,12 +33,11 @@ class CourseController extends Controller
         //Cadastrar no Banco de Dados na tabela Cursos os valores de todos os campos do formulário
         // dd($request->name);
         $course = Course::create([
-            'name' => $request->name
+            'name' => $request->name,
+            'price' => $request->price,
         ]);
-
         //Redirecionar  o usuário, enviar a mensagem de sucesso;
         return redirect()->route('courses.show',['course'=>$course->id])->with('success', 'Curso cadastrado com sucesso!');
-
     }
     //Carregar o Formulário para editar o Curso
     public function edit(Course $course){
@@ -50,7 +49,8 @@ class CourseController extends Controller
     public function update(Request $request, Course $course){
         //Editar o registro no banco de dados o curso
         $course->update([
-            'name' => $request->name
+            'name' => $request->name,
+            'price' => $request->price,
         ]);
         //Redireciona o usuário, envia a mensagem de sucesso;
         return redirect()->route('courses.show',['course'=>$course->id])->with('success', 'Curso atualizado com sucesso!');
